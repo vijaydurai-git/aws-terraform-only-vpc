@@ -9,3 +9,4 @@ variable "ip_range" {
 variable "do_you_want_nat_gateway" {
   type = bool
 }
+

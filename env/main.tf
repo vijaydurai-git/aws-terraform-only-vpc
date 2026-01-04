@@ -23,7 +23,9 @@ module "vpc_module" {
   subnet_03_cidr_in = local.subnet_03_cidr
   subnet_04_cidr_in = local.subnet_04_cidr
   project_tag_in    = local.current_project_tag
-  nat_gateway_id_in = length(module.nat_gateway_module) > 0 ? module.nat_gateway_module[0].nat_gateway_id_out : null
+  nat_gateway_id_in      = length(module.nat_gateway_module) > 0 ? module.nat_gateway_module[0].nat_gateway_id_out : null
+  nat_gateway_enabled_in = var.do_you_want_nat_gateway
+
 
 }
 
@@ -37,5 +39,8 @@ module "nat_gateway_module" {
   subnet_1_id_in = module.vpc_module.subnet_1_id_out
 
 
+
 }
+
+
 
